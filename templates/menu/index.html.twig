@@ -1,0 +1,41 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Menu{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Liste des Menu</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Icon</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menu in menus %}
+            <tr>
+                <td>{{ menu.id }}</td>
+                <td>{{ menu.NomMenu }}</td>
+                <td>{{ menu.DescMenu }}</td>
+                <td><i class="{{ menu.IconMenu }}"></i></td>
+                <td>
+                    <button class="btn btn-primary">  <a href="{{ path('menu_show', {'id': menu.id}) }}">Voir</a></button>
+                    <button class="btn btn-danger"> <a href="{{ path('menu_edit', {'id': menu.id}) }}">Editer</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun Menu</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <button class="btn btn-success"><a href="{{ path('menu_new') }}">Ajouter un Menu</a></button>
+    </div>
+{% endblock %}

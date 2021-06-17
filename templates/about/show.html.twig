@@ -1,0 +1,35 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>About</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ about.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ about.NomAbout }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td style="word-wrap: break-spaces">{{ about.DescAbout }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ vich_uploader_asset(about.image, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+        <button class="btn btn-primary"><a href="{{ path('about_index') }}">Retour à la liste</a></button>
+
+        <button class="btn btn-danger"><a href="{{ path('about_edit', {'id': about.id}) }}">Editer</a></button>
+
+    {{ include('about/_delete_form.html.twig') }}
+{% endblock %}

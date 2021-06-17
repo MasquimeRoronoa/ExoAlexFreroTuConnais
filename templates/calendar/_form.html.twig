@@ -1,0 +1,34 @@
+{{ form_start(form) }}
+
+<div class="mb-3">
+    <h4 class="mb-0"> Nom : </h4>
+    {{ form_row(form.NomCalendrier) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Mail : </h4>
+    {{ form_row(form.MailCalendrier) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Téléphone : </h4>
+    {{ form_row(form.TelCalendrier) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Personne : </h4>
+    {{ form_row(form.NombreCalendrier) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Arrivée : </h4>
+    {{ form_row(form.DateDebutCalendrier) }}
+</div>
+
+
+<div class="text-center mt-3">
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+</div>
+{{ form_end(form) }}
+
+

@@ -1,0 +1,32 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Image{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Image</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ image.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ image.NomImage }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td><img src="{{ vich_uploader_asset(image, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+        <button class="btn btn-primary"><a href="{{ path('image_index') }}">Retour à la Liste</a></button>
+
+        <button class="btn-danger"><a href="{{ path('image_edit', {'id': image.id}) }}">Editer</a></button>
+
+    {{ include('image/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

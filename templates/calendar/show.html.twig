@@ -1,0 +1,42 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Calendrier{% endblock %}
+
+{% block body %}
+    <h1>Calendrier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ calendrier.id }}</td>
+            </tr>
+            <tr>
+                <th>NomCalendrier</th>
+                <td>{{ calendrier.NomCalendrier }}</td>
+            </tr>
+            <tr>
+                <th>MailCalendrier</th>
+                <td>{{ calendrier.MailCalendrier }}</td>
+            </tr>
+            <tr>
+                <th>DateDebutCalendrier</th>
+                <td>{{ calendrier.DateDebutCalendrier ? calendrier.DateDebutCalendrier|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NombreCalendrier</th>
+                <td>{{ calendrier.NombreCalendrier }}</td>
+            </tr>
+            <tr>
+                <th>TelCalendrier</th>
+                <td>{{ calendrier.TelCalendrier }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendar_index') }}">back to list</a>
+
+    <a href="{{ path('calendar_edit', {'id': calendrier.id}) }}">edit</a>
+
+    {{ include('calendar/_delete_form.html.twig') }}
+{% endblock %}

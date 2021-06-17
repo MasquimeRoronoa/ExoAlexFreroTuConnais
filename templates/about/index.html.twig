@@ -1,0 +1,41 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des About{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Liste des About</h1>
+
+    <table class="table">
+        <thead>
+            <tr class="row">
+                <th class="col-2">Id</th>
+                <th class="col-2">Titre</th>
+                <th class="col-2">Description</th>
+                <th class="col-2">Image</th>
+                <th class="col-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for about in abouts %}
+            <tr class="row">
+                <td class="col-2">{{ about.id }}</td>
+                <td class="col-2">{{ about.NomAbout }}</td>
+                <td class="col-2">{{ about.DescAbout|slice(0,20)}}...</td>
+                <td class="col-2"><img src="{{ vich_uploader_asset(about.image, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+                <td class="col-2">
+                    <button class="btn btn-primary"><a href="{{ path('about_show', {'id': about.id}) }}">Voir</a></button>
+                        <button class="btn btn-danger"><a href="{{ path('about_edit', {'id': about.id}) }}">Editer</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun About</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <button class="btn btn-success"><a href="{{ path('about_new') }}">Ajouter un About</a></button>
+    </div>
+{% endblock %}

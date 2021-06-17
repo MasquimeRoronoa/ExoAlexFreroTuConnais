@@ -1,0 +1,33 @@
+{{ form_start(form) }}
+
+
+<div class="mb-3">
+    <h4 class="mb-0"> Nom : </h4>
+    {{ form_row(form.NomProduit) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Prix : </h4>
+    {{ form_row(form.PrixProduit) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Descritpion : </h4>
+    {{ form_row(form.DescProduit) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Image : </h4>
+    {{ form_row(form.image) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Catégorie : </h4>
+    {{ form_row(form.categories) }}
+</div>
+
+<div class="text-center mt-3">
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+</div>
+
+{{ form_end(form) }}

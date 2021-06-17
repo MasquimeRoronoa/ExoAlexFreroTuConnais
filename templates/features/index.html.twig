@@ -1,0 +1,41 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Features{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Liste des Features</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Icon</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for feature in features %}
+            <tr>
+                <td>{{ feature.id }}</td>
+                <td>{{ feature.NomFeatures }}</td>
+                <td>{{ feature.DescFeatures }}</td>
+                <td><i class="{{ feature.IconFeatures }}"></i></td>
+                <td>
+                    <button class="btn btn-primary"><a href="{{ path('features_show', {'id': feature.id}) }}">Voir</a></button>
+                    <button class="btn btn-danger"><a href="{{ path('features_edit', {'id': feature.id}) }}">Editer</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun Features</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <button class="btn btn-success"><a href="{{ path('features_new') }}">Ajouter un Features</a></button>
+    </div>
+{% endblock %}

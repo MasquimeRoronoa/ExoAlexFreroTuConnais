@@ -1,0 +1,21 @@
+{{ form_start(form) }}
+
+<div class="mb-3">
+    <h4 class="mb-0"> Nom : </h4>
+    {{ form_row(form.NomMenu) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Description : </h4>
+    {{ form_row(form.DescMenu) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Icon : </h4>
+    {{ form_row(form.IconMenu) }}
+</div>
+
+<div class="text-center mt-3">
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+    <div class="text-center mt-3">
+{{ form_end(form) }}

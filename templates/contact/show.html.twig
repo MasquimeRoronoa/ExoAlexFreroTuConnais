@@ -1,0 +1,37 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Contact</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ contact.NomContact }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ contact.MailContact }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ contact.SujetContact }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ contact.MessageContact }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary"> <a href="{{ path('contact_index') }}">Retour à la Liste</a></button>
+
+    {{ include('contact/_delete_form.html.twig') }}
+{% endblock %}

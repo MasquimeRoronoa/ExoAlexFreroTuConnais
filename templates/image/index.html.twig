@@ -1,0 +1,39 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Images{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Liste des Images</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.NomImage }}</td>
+                <td><img src="{{ vich_uploader_asset(image, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+                <td>
+                    <button class="btn btn-primary"><a href="{{ path('image_show', {'id': image.id}) }}">Voir</a></button>
+                    <button class="btn btn-danger"><a href="{{ path('image_edit', {'id': image.id}) }}">Editer</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune Image</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-success"><a href="{{ path('image_new') }}">Ajouter une Image</a></button>
+    </div>
+{% endblock %}

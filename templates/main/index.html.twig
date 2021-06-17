@@ -1,0 +1,288 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+
+<!-- Carousel Start -->
+
+<div class="carousel">
+    <div class="container-fluid">
+        <div class="owl-carousel">
+            {% for produit in slide %}
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{{ vich_uploader_asset(produit.image, "imageFile") }}" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>{{ produit.NomProduit }}</h1>
+                    <p>
+                        {{ produit.DescProduit }}
+                    </p>
+
+                    <div class="carousel-btn">
+                        <a class="btn custom-btn" href="">View Menu</a>
+                        <a class="btn custom-btn" href="">Book Table</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Carousel End -->
+
+
+    <!-- Feature Start -->
+    <div class="feature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-header">
+                        <p>Why Choose Us</p>
+                        <h2>Our Key Features</h2>
+                    </div>
+                    <div class="feature-text">
+                        <div class="feature-img">
+                            <div class="row">
+                                {% for produit in produitss %}
+                                <div class="col-6">
+                                    <img src="{{ vich_uploader_asset(produit.image, "imageFile") }}" style="width:250px; height:150px" alt="Image">
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consec adipis elit. Phasel nec preti mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor, auctor id gravida condime, viverra quis sem. Curabit non nisl nec nisi sceleri maximus
+                        </p>
+                        <a class="btn custom-btn" href="">Book A Table</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+
+                    <div class="row">
+                        {% for feature in features %}
+                        <div class="col-sm-6">
+                            <div class="feature-item">
+                                <i class="{{ feature.IconFeatures }}"></i>
+                                <h3>{{ feature.NomFeatures }}</h3>
+                                <p>
+                                    {{ feature.DescFeatures }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% for feature in featuress %}
+
+                            <div class="col-sm-6">
+                                <div class="feature-item">
+                                    <i class="{{ feature.IconFeatures }}"></i>
+                                    <h3>{{ feature.NomFeatures }}</h3>
+                                    <p>
+                                        {{ feature.DescFeatures }}
+                                    </p>
+                                </div>
+                            </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+
+
+    <!-- Food Start -->
+    <div class="food mt-0">
+        <div class="container">
+            <div class="row align-items-center">
+                {% for menu in menus %}
+                <div class="col-md-4">
+                    <div class="food-item">
+                        <i class="{{ menu.IconMenu }}"></i>
+                        <h2>{{ menu.NomMenu }}</h2>
+                        <p>
+                            {{ menu.DescMenu }}
+                        </p>
+                        <a href="">Voir le Menu</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- Food End -->
+
+
+    <!-- Menu Start -->
+    <div class="menu-tab">
+        <ul class="nav nav-pills justify-content-center">
+            {% for menu in menus %}
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#{{ menu.NomMenu }}">{{ menu.NomMenu }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="tab-content">
+            {% for menu in menus %}
+            <div id="{{ menu.NomMenu }}" class="container tab-pane active">
+                {% endfor %}
+                <div class="row">
+                    {% for produit in produits %}
+                    <div class="col-lg-7 col-md-12">
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="{{ vich_uploader_asset(produit.image, "imageFile") }}" class="w-25 h-25">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>{{ produit.NomProduit }}</span> <strong>{{ produit.PrixProduit }} €</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div id="" class="container tab-pane fade">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12">
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-snack.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Corn Tikki - Spicy fried Aloo</span> <strong>$15.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-snack.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Bread besan Toast</span> <strong>$35.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-snack.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Healthy soya nugget snacks</span> <strong>$20.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-snack.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Tandoori Soya Chunks</span> <strong>$30.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <img src="img/menu-snack-img.jpg" alt="Image">
+                    </div>
+                </div>
+            </div>
+            <div id="beverages" class="container tab-pane fade">
+                <div class="row">
+                    <div class="col-lg-7 col-md-12">
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-beverage.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Single Cup Brew</span> <strong>$7.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-beverage.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Caffe Americano</span> <strong>$9.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-beverage.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Caramel Macchiato</span> <strong>$15.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-beverage.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Standard black coffee</span> <strong>$8.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-img">
+                                <img src="img/menu-beverage.jpg" alt="Image">
+                            </div>
+                            <div class="menu-text">
+                                <h3><span>Standard black coffee</span> <strong>$12.00</strong></h3>
+                                <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <img src="img/menu-beverage-img.jpg" alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Menu End -->
+
+<!-- Team Start -->
+<div class="team">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Our Team</p>
+            <h2>Our Master Chef</h2>
+        </div>
+
+        <div class="row">
+            {% for chef in chefs %}
+            <div class="col-lg-3 col-md-6">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="{{ vich_uploader_asset(chef.image, "imageFile") }}" style="width:300px; height: 200px">
+                        <div class="team-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-text">
+                        <h2>{{ chef.NomChef }} {{ chef.PrenomChef }}</h2>
+                        <p>{{ chef.PosteChef }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Produit{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Produit</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ produit.NomProduit }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produit.PrixProduit }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ produit.DescProduit }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{ vich_uploader_asset(produit.image, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary"><a href="{{ path('produit_index') }}">Retour à la Liste</a></button>
+
+    <button class="btn btn-danger"><a href="{{ path('produit_edit', {'id': produit.id}) }}">Editer</a></button>
+
+    {{ include('produit/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

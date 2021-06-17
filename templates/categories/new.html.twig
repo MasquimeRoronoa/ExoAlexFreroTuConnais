@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Créer une Catégorie{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Créer une Catégorie</h1>
+
+    {{ include('categories/_form.html.twig') }}
+
+       <button class="btn btn-primary"> <a href="{{ path('categories_index') }}">Retour à la Liste</a></button>
+    </div>
+{% endblock %}

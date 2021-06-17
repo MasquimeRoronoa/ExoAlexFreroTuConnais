@@ -1,0 +1,36 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Features{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <h1>Features</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ feature.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ feature.NomFeatures }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ feature.DescFeatures }}</td>
+            </tr>
+            <tr>
+                <th>Icon</th>
+                <td><i class="{{ feature.IconFeatures }}"></i></td>
+            </tr>
+        </tbody>
+    </table>
+
+        <button class="btn btn-primary"><a href="{{ path('features_index') }}">Retour à la Liste</a></button>
+
+        <button class="btn-danger"><a href="{{ path('features_edit', {'id': feature.id}) }}">edit</a></button>
+
+    {{ include('features/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

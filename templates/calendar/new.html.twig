@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Prise de Rendez Vous{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Prendre un Rendez Vous</h1>
+
+    {{ include('calendar/_form.html.twig') }}
+
+    <a href="{{ path('calendrier') }}">Retour à l'Agenda</a>
+    </div>
+{% endblock %}

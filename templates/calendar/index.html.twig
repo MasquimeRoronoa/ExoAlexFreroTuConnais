@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Rendez Vous{% endblock %}
+
+{% block body %}
+    <h1>Liste des Rendez Vous</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Mail</th>
+                <th>Téléphone</th>
+                <th>Arrivée</th>
+                <th>Départ</th>
+                <th>Invité</th>
+
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendrier in calendriers %}
+            <tr>
+                <td>{{ calendrier.id }}</td>
+                <td>{{ calendrier.NomCalendrier }}</td>
+                <td>{{ calendrier.MailCalendrier }}</td>
+                <td>{{ calendrier.TelCalendrier }}</td>
+                <td>{{ calendrier.DateDebutCalendrier ? calendrier.DateDebutCalendrier|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendrier.NombreCalendrier }}</td>
+                <td>
+                    <a href="{{ path('calendar_show', {'id': calendrier.id}) }}">show</a>
+                    <a href="{{ path('calendar_edit', {'id': calendrier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendar_new') }}">Create new</a>
+{% endblock %}

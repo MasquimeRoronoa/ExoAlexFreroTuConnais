@@ -1,0 +1,15 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Editer un Menu{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Editer un Menu</h1>
+
+    {{ include('menu/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <button class="btn-primary"> <a href="{{ path('menu_index') }}">Retour à la Liste</a></button>
+
+    {{ include('menu/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
